@@ -777,7 +777,7 @@ step3:-This is resolved successfully.
                         </div>
                     </div>
                     <div class="right-contact">
-                        <form action="" class="contact-form">
+                        <form onsubmit="sendEmail()" action="" class="contact-form">
                             <div class="input-control i-c-2">
                                 <input type="text" required placeholder="YOUR NAME">
                                 <input type="email" required placeholder="YOUR EMAIL">
@@ -822,5 +822,21 @@ step3:-This is resolved successfully.
         <i class="fas fa-adjust"></i>
     </div>
     <script src="app.js"></script>
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "username",
+    Password : "password",
+    To : 'them@website.com',
+    From : "you@isp.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+        }
+    </script>
 </body>
 </html>
